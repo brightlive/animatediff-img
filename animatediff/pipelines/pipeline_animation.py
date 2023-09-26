@@ -339,7 +339,6 @@ class AnimationPipeline(DiffusionPipeline):
                         if progress < 0.0:
                             progress = 0.0
                         init_alpha = alpha_start + (progress * (alpha_end - alpha_start))
-                        init_alpha = 0.0
                         latents[:, :, i, :, :] = init_latents * init_alpha + latents[:, :, i, :, :] * (1 - init_alpha)
         else:
             if latents.shape != shape:
