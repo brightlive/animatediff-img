@@ -330,7 +330,8 @@ class AnimationPipeline(DiffusionPipeline):
                     for i in range(video_length):
                         # I just feel dividing by 30 yield stable result but I don't know why
                         # gradully reduce init alpha along video frames (loosen restriction)
-                        init_alpha = (video_length - float(i)) / video_length / 30 
+                        #init_alpha = (video_length - float(i)) / video_length / 30 
+                        init_alpha = 0.1
                         latents[:, :, i, :, :] = init_latents * init_alpha + latents[:, :, i, :, :] * (1 - init_alpha)
         else:
             if latents.shape != shape:
