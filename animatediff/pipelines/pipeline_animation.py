@@ -333,7 +333,7 @@ class AnimationPipeline(DiffusionPipeline):
                         #init_alpha = (video_length - float(i)) / video_length / 30 
                         alpha_start = 1.0
                         alpha_end = 0.01
-                        progress = float(i) / video_length
+                        progress = (float(i) / video_length) ** 0.5 #sqrt
                         init_alpha = alpha_start + (progress * (alpha_end - alpha_start))
                         latents[:, :, i, :, :] = init_latents * init_alpha + latents[:, :, i, :, :] * (1 - init_alpha)
         else:
