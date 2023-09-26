@@ -331,8 +331,8 @@ class AnimationPipeline(DiffusionPipeline):
                         # I just feel dividing by 30 yield stable result but I don't know why
                         # gradully reduce init alpha along video frames (loosen restriction)
                         #init_alpha = (video_length - float(i)) / video_length / 30 
-                        alpha_start = 0.5
-                        alpha_end = 0.05
+                        alpha_start = 1.0
+                        alpha_end = 0.01
                         progress = float(i) / video_length
                         init_alpha = alpha_start + (progress * (alpha_end - alpha_start))
                         latents[:, :, i, :, :] = init_latents * init_alpha + latents[:, :, i, :, :] * (1 - init_alpha)
