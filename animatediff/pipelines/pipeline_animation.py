@@ -331,9 +331,9 @@ class AnimationPipeline(DiffusionPipeline):
                         # I just feel dividing by 30 yield stable result but I don't know why
                         # gradully reduce init alpha along video frames (loosen restriction)
                         #init_alpha = (video_length - float(i)) / video_length / 30 
-                        alpha_start = 0.5
-                        alpha_end = 0.0
-                        progress = (float(i) / (video_length * .5))
+                        alpha_start = 0.033
+                        alpha_end = 0.002
+                        progress = (float(i) / (video_length * 1.0))
                         if progress > 1.0:
                             progress = 1.0
                         if progress < 0.0:
