@@ -341,7 +341,7 @@ class AnimationPipeline(DiffusionPipeline):
                         init_alpha = alpha_start + (progress * (alpha_end - alpha_start))
                         # TEMP!
                         if i == 0:
-                            init_alpha = 1.0
+                            init_alpha = 2.0
                         else:
                             init_alpha = 0.0
                         latents[:, :, i, :, :] = init_latents * init_alpha + latents[:, :, i, :, :] * (1 - init_alpha)
